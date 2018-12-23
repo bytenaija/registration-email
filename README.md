@@ -7,7 +7,7 @@ Have yarn/npm installed on your system
 
 
 ## Available Scripts
-upstack
+cd into the upstack
 In the project directory, you can run:
 
 ### `yarn` or `npm install`
