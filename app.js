@@ -3,13 +3,14 @@ const app = express();
 const dotenv = require('dotenv').config()
 const authRoutes = require('./routes/auth')
 const mongoose = require('mongoose')
+const config = require('./config/db')
 
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, (err)=>{
+mongoose.connect(config.db, { useNewUrlParser: true }, (err)=>{
 if(err){
 process.exit(1)
 }else{
@@ -30,3 +31,4 @@ app.listen(app.get('port'), ()=>{
     console.log(`Server listening on port ${app.get('port')}`)
 })
 
+module.exports = app;

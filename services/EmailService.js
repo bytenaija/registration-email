@@ -40,7 +40,7 @@ emailService
       link
     }
   })
-  .then(console.log)
+  // .then(console.log)
   .catch(console.error);
 
 }
