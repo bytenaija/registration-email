@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 module.exports ={
   jwtSign : (user, cb) =>{
-    console.log("JWT", user)
+    // console.log("JWT", user)
     jwt.sign({user}, process.env.JWT_SECRET, (err, token)=>{
       if(err){
         cb(err)
@@ -15,7 +15,7 @@ module.exports ={
 
 verifyToken: (req, res, next)=> {
     const bearerHeader = req.headers['authorization'];
-    console.log(bearerHeader);
+    // console.log(bearerHeader);
     if (typeof bearerHeader != 'undefined') {
         const bearer = bearerHeader.split(" ");
         const bearerToken = bearer[1];
