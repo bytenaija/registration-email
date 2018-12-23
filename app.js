@@ -1,10 +1,23 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv').config()
+const authRoutes = require('./routes/auth')
+const mongoose = require('mongoose')
+
+
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, (err)=>{
+if(err){
+process.exit(1)
+}else{
+    console.log("connected to mongodb")
+}
+})
+
+app.use('/', authRoutes)
 
 // app.set('port', 3000)
 

@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
+let {verifyToken} = require('../config/jwt')
 
 const UserController = require('../controllers/user')
 
-router.post('login', UserController.login)
-router.post('register', UserController.register)
+router.post('/login', UserController.login)
 
-router.get('verification', UserController.emailVerification)
+router.post('/register', UserController.register)
 
-router.get('/users', UserController.getUsers)
+router.get('/verification/:code', UserController.emailVerification)
+
+router.get('/users', verifyToken, UserController.getUsers)
 
 module.exports = router;

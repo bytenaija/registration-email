@@ -9,8 +9,10 @@
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.4.0",
+    "morgan": "^1.9.1",
     "nodemailer": "^4.7.0",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {},
   "scripts": {
